@@ -22,7 +22,7 @@ public class ProductRepository {
         Product catshirt = new Product("P1235", " 나비고양이 특양면 맨투맨_B1", 42000);
         catshirt.setFilename("P1235.png");
 		catshirt.setDescription("VENHIT / B1 / 2022 F/W / 남여");
-		catshirt.setCategory("맨투맨");
+		catshirt.setCategory("catshirt");
 		catshirt.setManufacturer("밴힛");
 		catshirt.setUnitsInStock(1000);
 		catshirt.setCondition("Refurbished");
@@ -30,8 +30,8 @@ public class ProductRepository {
 		Product Bigangel = new Product("P1236", "빅 엔젤 프린트 맨투맨 오트밀", 79000);
         Bigangel.setFilename("P1236.png");
 		Bigangel.setDescription(" WHATITISNT / MG2304CR03OT / 남여");
-		Bigangel.setCategory("Tablet");
-		Bigangel.setManufacturer("Samsung");
+		Bigangel.setCategory("Bigangel");
+		Bigangel.setManufacturer("와릿이즌");
 		Bigangel.setUnitsInStock(1000);
 		Bigangel.setCondition("Old");
 		
