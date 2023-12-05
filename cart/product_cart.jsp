@@ -2,7 +2,7 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
 <%@ page import="java.util.Date"%>
-<%@ page import="dao.ProductRepository"%>
+<%//@ page import="dao.ProductRepository"%>
 <html>
 <head>
 
@@ -48,7 +48,7 @@
                     ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
                     if (cartList == null)
                         cartList = new ArrayList<Product>();
-                        for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
+                    for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
                         Product product = cartList.get(i);
                         int total = product.getUnitPrice() * product.getQuantity();
                         sum = sum + total;
@@ -71,7 +71,7 @@
                     <th></th>
                 </tr>
             </table>
-            <a href="../admin/index_ad.jsp" class="btn btn-secondary"> &laquo; 쇼핑 계속하기</a>
+            <a href="../index.jsp" class="btn btn-secondary"> &laquo; 쇼핑 계속하기</a>
         </div>
 	    <hr>
     </div>

@@ -40,12 +40,13 @@
                                 <a class="dropdown-item" href="#">매거진</a>
                             </div>
                         </a>
-                        <a class="navbar-brand" href="./index.jsp">회원 보기/추가/수정/삭제</a>        //현재경로
+                        <a class="navbar-brand" href="./index.jsp">회원 보기/추가/수정/삭제</a>        
                         <a class="navbar-brand" href="index_ad.jsp">상품 보기</a>
                         <a class="navbar-brand" href="product_add.jsp">등록</a>
-                        <a class="navbar-brand" href="index_ad.jsp">수정/삭제</a>
+                        <a class="navbar-brand" href="product_edit.jsp?edit=update">수정</a>
+                        <a class="navbar-brand" href="product_edit.jsp?edit=delete">삭제</a>
                         <a class="navber-brand" href="../index.jsp">일반모드</a>
-
+                        
                 
                             
                 

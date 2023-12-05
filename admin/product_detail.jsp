@@ -1,9 +1,33 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ page import="dto.Product"%>
+<%//@page import="dto.Product"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="example.*" %>
-<%@ page import="dao.ProductRepository"%>
-<%@ page errorPage = "../exception/product_not_found.jsp" %>
+<%@ page errorPage = "exception/product_not_found.jsp" %>
+<%@ include file="../db/db_conn.jsp"%>
+<!-- DB 연결-->
+<%@ page import="java.sql.*"%>
+<!--<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />-->
+
+ <%            
+        String productId = request.getParameter("id");
+        String sql = "select * from product WHERE p_id = ?";; // 조회
+        try {
+        pstmt = conn.prepareStatement(sql);// 연결 생성
+        pstmt.setString(1, productId);    //SQL 쿼리의 파라미터에 값을 설정 : 첫번째 파라미터(인덱스 1)에 productId 값을 설정
+        rs = pstmt.executeQuery();// 쿼리 실행
+
+        if (rs.next()) {
+            //제품 세부정보 가져오기
+            String productName = rs.getString("p_name");
+            String productDescription = rs.getString("p_description");
+            String productManufacturer = rs.getString("p_manufacturer");
+            String productCategory = rs.getString("p_category");
+            int productUnitsInStock = rs.getInt("p_unitsInStock");
+	%>
+	<%
+		//String id = request.getParameter("id");    //request : 내장 객체; 앞페이지에서 속성값을 정해주면 다음 페이지에서 메서드로 id값 받을 수 있음, 여러개 인자도 받을 수 있음
+		//Product product = productDAO.getProductById(id);    //앞서 구현한 getProductById에 상품코드 받앟서 product에 넣어줌
+	%>
 
 <html>
     <head>
@@ -20,6 +44,7 @@
 		}
 	}
     </script>
+
     <title>상품 상세 정보</title>
     </head>
     <body>
@@ -30,36 +55,34 @@
 			<h1 class="display-3">상품 상세 정보</h1>
 		</div>
 	</div>
-	<%
-		String id = request.getParameter("id");    //request : 내장 객체; 앞페이지에서 속성값을 정해주면 다음 페이지에서 메서드로 id값 받을 수 있음, 여러개 인자도 받을 수 있음
-		ProductRepository dao= ProductRepository.getInstance();
-        Product product= dao.getProductById(id);
-	%>
+    
+   
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h3><%=product.getPname()%></h3>
-				<p><%=product.getDescription()%>
-				<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=product.getProductId()%></span>
-				<p><b>제조사</b> : <%=product.getManufacturer()%>
-				<p><b>분류</b> : <%=product.getCategory()%>
-				<p><b>재고 수</b> : <%=product.getUnitsInStock()%>
-				<h4><%=product.getUnitPrice()%>원</h4>
+				<h3><%= productName %></h3>
+				<p><%= productDescription %>
+				<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=rs.getString("p_id")%></span>
+				<p><b>제조사</b> : <%= productManufacturer %>
+				<p><b>분류</b> : <%= productCategory %>
+				<p><b>재고 수</b> : <%= productUnitsInStock %>
+				<h4><%=rs.getString("p_unitPrice")%>원</h4>
                 
-                <p><form name="addForm" action="../cart/product_cart_add.jsp?id=<%=product.getProductId()%>" method="post">
-			        <a href="#" class="btn btn-info" onclick="addToCart()"> 상품 주문 &raquo;</a> 
-			        <a href="../cart/product_cart.jsp" class="btn btn-warning"> 장바구니 &raquo;</a>
-	            </form>
-                
+                <p><form name="addForm" action="../cart/product_cart_add.jsp?id=<%=rs.getString("p_id")%>" method="post">
+                        <a href="#" class="btn btn-info" onclick="addToCart()"> 상품 주문 &raquo;</a> 
+                        <a href="./cart/product_cart.jsp" class="btn btn-warning"> 장바구니 &raquo;</a>
+                </form>
                 
                 <div class="card bg-dark text-white">
-                    <img src="../image/product/<%=product.getFilename()%>" class="card-img" alt="...">
+                    <img src="../image/product/<%=rs.getString("p_fileName")%>" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <h5 class="card-title">상품 이미지 원본</h5>
                         <p class="card-text">출처 : 구글 검색</p>
                     </div>
                 </div>
-	            <p><a href="./index_ad.jsp" class="btn btn-secondary"> 상품 목록 &raquo;</a>
+                
+	            <!--<a href="#" class="btn btn-info"> 상품 주문 &raquo;</a>--> 
+                <p><a href="index_ad.jsp" class="btn btn-secondary"> 상품 목록 &raquo;</a>
 		    </div>
 		</div>
 		<hr>
@@ -68,3 +91,23 @@
 </body>
 
 </html>
+
+<%
+        } else {
+            // 상품이 존재하지 않을 경우 처리
+            response.sendRedirect("exception/product_not_found.jsp");
+        }
+    } catch (SQLException e) {
+        // SQL 예외 처리
+        e.printStackTrace();
+    } finally {
+        // 리소스 닫기
+        try {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+%>
