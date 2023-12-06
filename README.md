@@ -89,8 +89,36 @@ name값을 우편번호와 주소 input에 넣어준다.
 
 ----
 
-#### 추가구현
+#### 추가구현1
 ⭐데이터베이스에 추가한 상품 -> 상품 상세정보 DB 연결하기
 
 기존의 상품 상세 정보 버튼은 DB와 연동된 것이 아닌, dao, dto의 product를 불러와서 출력했다. 하지만 이제 DB가 생겼으니 DB에서 필요한 값들을 불러와 출력해보았다.
 
+![et-1](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/154a5792-6f04-47d5-a613-dfcf6744338d)
+
+![ex-2](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/10310f72-fc6d-4f7a-bfb8-99053aea9de0)
+
+![ex-3](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/9217410f-f139-4940-9087-7baddf9cf7c9)
+
+![ex-4](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/8686ed09-0a18-4fa5-b899-c2fbf7a1d4fe)
+
+#### 추가구현2
+⭐장바구니 DB연결(추가, 삭제, 주문)
+
+기존의 dto를 이용해 장바구니를 구현했었기 때문에 DB에 추가로 생성한 상품들은 장바구니 기능이 되지 않았다. 그래서 장바구니를 DB에 연동해 모든 상품을 담고, 주문 가능하도록 구현했다.
+
+![ex-5](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/e3170964-eed1-4f57-82bf-7f8099c91180)
+
+![ex-6](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/cc85e38a-9dc8-4148-af0a-f9f884aef375)
+
+![ex-7](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/249e7789-7267-4ff6-9da8-cfb0c8122a71)
+
+![ex-8](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/1f51e4f2-69d0-401f-8455-574b021c2412)
+
+##### 13주차
+- 상품 삭제 구현
+![13-1](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/ccf5dfec-95f0-4384-842c-c5217c31a8c5)
+
+![13-2](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/14dcadb6-0c03-4b35-ac0a-e4f3be4e57ab)
+
+![13-3](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/08253b61-c479-4cff-a31f-7910aed7c429)
