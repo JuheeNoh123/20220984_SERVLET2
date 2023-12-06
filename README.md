@@ -1,9 +1,12 @@
 # 20220984_SERVLET2
 자바웹 수정
 
+수업 때 진행했던 컨테이너에 탐켓 오류가 발생하여 새로운 컨테이너를 생성하여 깃을 새로 연결하였습니다.
+
+5주차 연습문제의 경우 자바빈즈로 상품을 추가 했었으나, 후에 DB 연동 등의 코드 수정으로 코드가 남아있지 않아 업로드를 못하였습니다😢
 
 ##### 3주차 연습문제
-자바 소스코드 분리 : - ShopTime 클래스 생성
+자바 소스코드 분리 : ShopTime 클래스 생성
 
 ![3주차 문제](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/5bfafaf5-92fb-40a2-9ac4-7c222858cc51)
 
@@ -144,8 +147,9 @@ name값을 우편번호와 주소 input에 넣어준다.
 
 ![ex-8](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/1f51e4f2-69d0-401f-8455-574b021c2412)
 
-##### 13주차
+##### 13주차 연습문제
 - 상품 삭제 구현
+
 ![13-1](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/ccf5dfec-95f0-4384-842c-c5217c31a8c5)
 
 ![13-2](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/14dcadb6-0c03-4b35-ac0a-e4f3be4e57ab)
