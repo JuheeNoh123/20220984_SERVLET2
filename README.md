@@ -21,14 +21,27 @@
 
 ![10-2](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/cd9bd7a0-22a2-41f2-a07e-b7c6b76ddba8)
 
+
+
 ----
+
+
+
+
 - 장바구니 상단 로그 이미지 깨지는 부분 수정
 
 ![10-3](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/826b0eb8-e039-485e-99ed-fd0e18c758d1)
 
 ![10-4](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/63c0464e-9db8-40f6-80d8-8941ab2b4be9)
 
+
+
+
+
 ----
+
+
+
 - 세션 전체삭제 -> 뒤로가기 한후 -> 특정상품 선택 삭제할 경우 에러 수정하기
 
 ⚠️ 에러 원인 : 뒤로가기를 하면 삭제 전 상품들 목록이 그대로 출력되는데, 여기서 다시 삭제를 눌렀을 경우,  cartList라는 세션 값이 초기화 되어 비어있는데 다시 해당 상품을 삭제하려해서 세션값을 찾지 못해 나는 NullPointerException 에러였다. 
@@ -48,7 +61,13 @@ order_info.jsp에 js를 이용하여 현재 날짜를 저장하고, 입력한 �
 
 ![11-3](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/2b28e586-e727-4459-bd07-8e4ad982e817)
 
+
+
+
 ----
+
+
+
 
 2. 국가명을 select 박스로 수정하자.
 
@@ -56,7 +75,13 @@ order_info.jsp에 js를 이용하여 현재 날짜를 저장하고, 입력한 �
 
 ![11-5](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/9956a80c-5e86-4976-bcd8-e015d4499038)
 
+
+
+
 ----
+
+
+
 
 3. 우편 번호와 주소를 검색을 통해 입력되도록 수정
 
@@ -87,7 +112,11 @@ name값을 우편번호와 주소 input에 넣어준다.
 ![12-3](https://github.com/JuheeNoh123/20220984_SERVLET2/assets/127907793/655ec247-8518-479e-b643-2fac4a5ae2eb)
 
 
+
 ----
+
+
+
 
 #### 추가구현1
 ⭐데이터베이스에 추가한 상품 -> 상품 상세정보 DB 연결하기
